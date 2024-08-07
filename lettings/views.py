@@ -1,5 +1,7 @@
 from .models import Letting
 from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+
 
 def index(request):
     """
@@ -19,10 +21,11 @@ def index(request):
         lettings_list = Letting.objects.all()
     except Exception as e:
         # En cas d'erreur serveur, afficher une page d'erreur 500
-        return render(request, "500.html", status=500)
+        return render(request, "lettings/500.html", status=500)
     
     context = {"lettings_list": lettings_list}
-    return render(request, "index.html", context)
+    
+    return render(request, "lettings/index.html", context)
 
 
 def letting(request, letting_id):
@@ -40,15 +43,16 @@ def letting(request, letting_id):
         HttpResponse: La réponse contenant le rendu du template `letting.html` avec les détails de la location.
     """
     try:
-        # Utiliser get_object_or_404 pour gérer les erreurs 404
         letting = get_object_or_404(Letting, id=letting_id)
-        
         context = {
             "title": letting.title,
             "address": letting.address,
         }
-        return render(request, "letting.html", context)
+        return render(request, "lettings/letting.html", context)
     
+    except Http404:
+        # Gestion spécifique des erreurs 404
+        return render(request, "lettings/404.html", status=404)
     except Exception as e:
-        # En cas d'erreur serveur, afficher une page d'erreur 500
-        return render(request, "500.html", status=500)
+        # Gestion des autres erreurs internes du serveur
+        return render(request, "lettings/500.html", status=500)
