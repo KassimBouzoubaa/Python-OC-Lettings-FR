@@ -27,3 +27,14 @@ class LettingViewsTest(TestCase):
         response = self.client.get(reverse('letting', args=[self.letting.id]))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Cozy Apartment')
+    
+    def test_letting_view_with_error(self):
+        # Simulez un ID de letting qui n'existe pas
+        non_existent_id = 9999
+        response = self.client.get(reverse('letting', args=[non_existent_id]))
+
+        # Vérifiez que la réponse a un code de statut 404
+        self.assertEqual(response.status_code, 404)
+
+        # Vérifiez que le message d'erreur attendu est contenu dans la réponse
+        self.assertContains(response, 'Oups ! Page non trouvée', status_code=404)

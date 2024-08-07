@@ -19,11 +19,11 @@ def index(request):
     try:
         profiles_list = Profile.objects.all()
         context = {"profiles_list": profiles_list}
-        return render(request, "index.html", context)
+        return render(request, "profiles/index.html", context)
     
     except Exception as e:
         # En cas d'erreur serveur, afficher une page d'erreur 500
-        return render(request, "500.html", status=500)
+        return render(request, "profiles/500.html", status=500)
 
 def profile(request, username):
     """
@@ -44,8 +44,8 @@ def profile(request, username):
     try:
         profile = get_object_or_404(Profile, user__username=username)
         context = {"profile": profile}
-        return render(request, "profile.html", context)
+        return render(request, "profiles/profile.html", context)
     
     except Exception as e:
         # En cas d'erreur serveur, afficher une page d'erreur 500
-        return render(request, "500.html", status=500)
+        return render(request, "profiles/500.html", status=500)
