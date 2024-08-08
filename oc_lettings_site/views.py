@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from sentry_sdk import capture_exception
+
 
 def index(request):
     """
@@ -17,7 +19,8 @@ def index(request):
     try:
         # Code normal pour rendre la page d'accueil
         return render(request, "index.html")
-    
+
     except Exception as e:
+        capture_exception(e)
         # En cas d'erreur serveur, afficher une page d'erreur 500
         return render(request, "500.html", status=500)
