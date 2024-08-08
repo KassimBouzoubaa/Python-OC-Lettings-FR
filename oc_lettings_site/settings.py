@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
-from sentry_sdk.integrations.django import DjangoIntegration 
-import environ 
-import sentry_sdk 
+from sentry_sdk.integrations.django import DjangoIntegration
+import environ
+import sentry_sdk
 
 
 # Chemin de base du projet
@@ -23,7 +23,7 @@ sentry_sdk.init(
 )
 
 # Clé secrète
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -129,4 +129,3 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-

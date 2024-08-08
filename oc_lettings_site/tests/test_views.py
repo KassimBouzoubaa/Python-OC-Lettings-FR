@@ -14,7 +14,8 @@ def test_index_view():
     # Vérifiez que la réponse a le code de statut 200 OK
     assert response.status_code == 200
 
-    # Vérifiez que le contenu de la réponse contient une partie attendue (assurez-vous que cela correspond à ce qui est dans votre template index.html)
+    # Vérifiez que le contenu de la réponse contient une partie attendue
+    # (assurez-vous que cela correspond à ce qui est dans votre template index.html)
     assert (
         "Welcome to Holiday Homes" in response.content.decode()
     )  # Remplacez par un texte spécifique à votre template

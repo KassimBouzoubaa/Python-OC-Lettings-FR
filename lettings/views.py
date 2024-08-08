@@ -8,7 +8,9 @@ def index(request):
     """
     Vue pour afficher la liste des locations.
 
-    Cette vue récupère toutes les instances du modèle `Letting` et les passe au template `index.html`.
+    Cette vue récupère toutes les instances du modèle `Letting` et
+
+    les passe au template `index.html`.
 
     En cas d'erreur serveur, la vue renvoie une page d'erreur 500.
 
@@ -16,7 +18,9 @@ def index(request):
         request (HttpRequest): L'objet de requête HTTP.
 
     Returns:
-        HttpResponse: La réponse contenant le rendu du template `index.html` avec la liste des locations.
+        HttpResponse: La réponse contenant le rendu du template `index.html`
+
+        avec la liste des locations.
     """
     try:
         lettings_list = Letting.objects.all()
@@ -35,14 +39,17 @@ def letting(request, letting_id):
     Vue pour afficher les détails d'une location spécifique.
 
     Cette vue récupère une instance du modèle `Letting` par son identifiant (`letting_id`).
-    Si l'objet n'existe pas, une erreur 404 est renvoyée. En cas d'erreur serveur, une page d'erreur 500 est affichée.
+    Si l'objet n'existe pas, une erreur 404 est renvoyée. En cas d'erreur serveur,
+    une page d'erreur 500 est affichée.
 
     Args:
         request (HttpRequest): L'objet de requête HTTP.
         letting_id (int): L'identifiant de la location à récupérer.
 
     Returns:
-        HttpResponse: La réponse contenant le rendu du template `letting.html` avec les détails de la location.
+        HttpResponse: La réponse contenant le rendu du template `letting.html`
+        avec les détails de la location.
+
     """
     try:
         letting = get_object_or_404(Letting, id=letting_id)

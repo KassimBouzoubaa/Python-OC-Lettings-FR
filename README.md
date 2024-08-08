@@ -32,6 +32,18 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
 - Pour désactiver l'environnement, `deactivate`
 
+### Configurer les variables d'environnement
+
+1. **Créer un fichier `.env` à la racine du projet**. Ce fichier doit contenir les variables d'environnement suivantes :
+
+    ```env
+    SECRET_KEY=your_secret_key_here
+    SENTRY_DSN=your_sentry_dsn_here
+    ```
+
+2. Remplacez `your_secret_key_here` par une clé secrète générée pour votre projet.
+3. Remplacez `your_sentry_dsn_here` par l'URL de votre DSN Sentry.
+
 #### Exécuter le site
 
 - `cd /path/to/Python-OC-Lettings-FR`
