@@ -51,9 +51,9 @@ def profile(request, username):
         context = {"profile": profile}
         return render(request, "profiles/profile.html", context)
 
-    except Http404:
+    except Http404 as e:
         # Envoyer l'exception à Sentry
-        capture_exception(Http404)
+        capture_exception(e)
         # Gestion spécifique des erreurs 404
         return render(request, "profiles/404.html", status=404)
     except Exception as e:
