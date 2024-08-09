@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 # Variables
 IMAGE_NAME="oc-letting"
 DOCKER_USERNAME="kassim93"
@@ -7,7 +11,14 @@ TAG="${DOCKER_REGISTRY}:${COMMIT_HASH}"
 SENTRY_DSN=$1
 SECRET_KEY=$2
 ALLOWED_HOSTS=$3
-# Exemple de code pour utiliser les variables
+
+# Vérifier les arguments
+if [ -z "$SENTRY_DSN" ] || [ -z "$SECRET_KEY" ] || [ -z "$ALLOWED_HOSTS" ]; then
+    echo "Error: Missing required arguments."
+    exit 1
+fi
+
+# Créer le fichier .env
 echo "SENTRY_DSN=$SENTRY_DSN" > .env
 echo "SECRET_KEY=$SECRET_KEY" >> .env
 echo "ALLOWED_HOSTS=$ALLOWED_HOSTS" >> .env
@@ -27,4 +38,4 @@ docker push $DOCKER_REGISTRY:latest
 
 # Lancer le conteneur localement
 echo "Running Docker container..."
-docker run -d -p 8000:8000 $TAG 
+docker run -d -p 8000:8000 $TAG
