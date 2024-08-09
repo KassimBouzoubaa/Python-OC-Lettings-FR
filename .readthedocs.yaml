@@ -20,7 +20,7 @@ build:
 
 # Instructions supplémentaires pour le processus de construction
 formats:
-  - html
+  - pdf
 
 # Option pour ignorer la construction si le fichier n'est pas modifié
 build:
