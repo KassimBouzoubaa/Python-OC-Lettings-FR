@@ -17,7 +17,6 @@ sphinx:
 # Spécifier l'image pour la construction
 build:
   image: "latest"
-  os: "ubuntu-22.04"
   tools:
     python: "3.11"
 
