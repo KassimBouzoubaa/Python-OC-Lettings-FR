@@ -45,6 +45,10 @@ jobs:
         run: |
           coverage report --fail-under=80
 
+      - name: Collect static files
+        run: |
+          python manage.py collectstatic --noinput
+
   # Travail de conteneurisation
   docker-build-and-push:
     runs-on: ubuntu-latest
