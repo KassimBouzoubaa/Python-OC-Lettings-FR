@@ -13,6 +13,7 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     env:
+      ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
     steps:
