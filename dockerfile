@@ -7,11 +7,14 @@ WORKDIR /app
 # Copie les fichiers de l'application dans le conteneur
 COPY . /app
 
+# Copier le fichier .env
+COPY .env /app/.env
+COPY .env.production /app/.env.production
+
 # Installe les dépendances Python
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-ENV SENTRY_DSN="https://fdfd0be163a43504a8e8a54335a8c0bd@o4507488574767104.ingest.de.sentry.io/4507737680379984"
 
 # Collecter les fichiers statiques
 RUN python manage.py collectstatic --noinput

@@ -6,7 +6,6 @@ COMMIT_HASH=$(git rev-parse --short HEAD)
 TAG="${DOCKER_REGISTRY}:${COMMIT_HASH}"
 SENTRY_DSN=$1
 
-
 # Construire l'image Docker
 echo "Building Docker image..."
 docker build -t $TAG .
@@ -22,4 +21,4 @@ docker push $DOCKER_REGISTRY:latest
 
 # Lancer le conteneur localement
 echo "Running Docker container..."
-docker run -d -p 8000:8000 $TAG -e SENTRY_DSN=$SENTRY_DSN $TAG
+docker run -d -p 8000:8000 $TAG 
