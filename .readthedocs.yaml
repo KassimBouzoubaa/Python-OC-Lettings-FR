@@ -17,7 +17,7 @@ sphinx:
 # Spécifier l'image pour la construction
 build:
   image: "latest"
-  os: "ubuntu-lts-latest"
+  os: ubuntu-lts-latest
   tools:
     python: "3.11"
 
