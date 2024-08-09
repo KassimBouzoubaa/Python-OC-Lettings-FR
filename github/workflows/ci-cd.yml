@@ -70,7 +70,8 @@ jobs:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
           curl -X POST \
-            -H "Authorization: Bearer $RENDER_API_KEY" \
-            -H "Content-Type: application/json" \
-            -d '{"serviceId": "your-render-service-id", "branch": "master"}' \
-            https://api.render.com/v1/services/your-render-service-id/deploys
+          -H "Authorization: Bearer $RENDER_API_KEY" \
+          -H "Content-Type: application/json" \
+          -d '{"serviceId": "srv-cqqn00ggph6c738dkcb0", "branch": "master"}' \
+          https://api.render.com/v1/services/srv-cqqn00ggph6c738dkcb0/deploys
+
