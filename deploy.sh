@@ -6,6 +6,7 @@ COMMIT_HASH=$(git rev-parse --short HEAD)
 TAG="${DOCKER_REGISTRY}:${COMMIT_HASH}"
 SENTRY_DSN=$1
 
+
 # Construire l'image Docker
 echo "Building Docker image..."
 docker build -t $TAG .
