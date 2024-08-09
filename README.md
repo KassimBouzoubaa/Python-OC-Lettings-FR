@@ -87,3 +87,54 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+## Déploiement
+
+### Vue d'ensemble
+
+Le déploiement de l'application est automatisé grâce à GitHub Actions et Render. Le processus CI/CD gère la compilation, les tests, la conteneurisation, et le déploiement de l'application.
+
+1. **Compilation et Tests** : Lors d'un push ou d'une pull request sur la branche `master`, GitHub Actions vérifie le code en exécutant des tests et des vérifications de qualité.
+2. **Conteneurisation** : Si les tests passent, une image Docker est construite et poussée vers Docker Hub.
+3. **Déploiement** : L'image Docker est ensuite déployée sur Render pour mise en production.
+
+### Configuration Requise
+
+1. **Secrets GitHub** :
+   - `DOCKER_USERNAME` : Nom d'utilisateur Docker Hub.
+   - `DOCKER_PASSWORD` : Mot de passe Docker Hub.
+   - `RENDER_API_KEY` : Clé API Render.
+   - `SECRET_KEY` : Clé secrète pour Django.
+
+2. **Dockerfile** : Assurez-vous qu'il est configuré pour construire l'image Docker de l'application.
+
+3. **Fichier `requirements.txt`** : Incluez toutes les dépendances nécessaires, comme `black`, `flake8`, et `pytest`.
+
+4. **Configuration Render** :
+   - Créez un service web sur Render.
+   - Configurez-le pour utiliser Docker et exposez le port approprié (par défaut 8000).
+   - Notez l'ID du service pour le workflow GitHub Actions.
+
+### Étapes de Déploiement
+
+1. **Configurer les Secrets GitHub** :
+   - Ajoutez les secrets `DOCKER_USERNAME`, `DOCKER_PASSWORD`, `RENDER_API_KEY`, et `SECRET_KEY` dans les paramètres de votre dépôt GitHub.
+
+2. **Configurer Dockerfile** :
+   - Assurez-vous qu'il est correctement configuré pour construire l'image Docker.
+
+3. **Configurer GitHub Actions** :
+   - Vérifiez que le fichier `.github/workflows/main.yml` est présent et correctement configuré.
+
+4. **Déployer l'Application** :
+   - Faites un push ou créez une pull request sur la branche `master`.
+   - GitHub Actions exécutera le workflow automatiquement.
+
+5. **Vérifier le Déploiement** :
+   - Accédez à l'URL fournie par Render pour vérifier que l'application fonctionne correctement.
+
+### Remarques
+
+- Testez votre configuration Docker et votre application localement avant le déploiement.
+- Gardez les secrets sécurisés et ne les exposez pas dans le code source.
+
