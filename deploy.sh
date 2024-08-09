@@ -5,6 +5,12 @@ DOCKER_REGISTRY="${DOCKER_USERNAME}/${IMAGE_NAME}"
 COMMIT_HASH=$(git rev-parse --short HEAD)
 TAG="${DOCKER_REGISTRY}:${COMMIT_HASH}"
 SENTRY_DSN=$1
+SECRET_KEY=$2
+ALLOWED_HOSTS=$3
+# Exemple de code pour utiliser les variables
+echo "SENTRY_DSN=$SENTRY_DSN" > .env
+echo "SECRET_KEY=$SECRET_KEY" >> .env
+echo "ALLOWED_HOSTS=$ALLOWED_HOSTS" >> .env
 
 # Construire l'image Docker
 echo "Building Docker image..."

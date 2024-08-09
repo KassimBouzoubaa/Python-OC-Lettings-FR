@@ -7,14 +7,9 @@ WORKDIR /app
 # Copie les fichiers de l'application dans le conteneur
 COPY . /app
 
-# Copier le fichier .env
-COPY .env /app/.env
-COPY .env.production /app/.env.production
-
 # Installe les dépendances Python
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
-
 
 # Collecter les fichiers statiques
 RUN python manage.py collectstatic --noinput
