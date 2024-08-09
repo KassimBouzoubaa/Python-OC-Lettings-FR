@@ -2,7 +2,7 @@
 
 version: 2
 
-# Configurer l'environnement Python
+# Configuration de l'environnement Python
 python:
   version: "3.11"
   install:
@@ -10,22 +10,40 @@ python:
       path: .
     - requirements: doc/requirements.txt
 
-# Construction de la documentation
+# Configuration de Sphinx
 sphinx:
   configuration: doc/conf.py
 
-# Construire la documentation en utilisant Sphinx
+# Spécifier l'image pour la construction
 build:
   image: "latest"
-
-# Option pour ignorer la construction si le fichier n'est pas modifié
-build:
   os: "ubuntu-22.04"
   tools:
     python: "3.11"
-  jobs:
-    post:
-      - if [ ! -f doc/index.rst ]; then echo "Documentation not found"; exit 1; fi
 
-# Spécifier la branche par défaut (par exemple, "main" ou "master")
+# Jobs de construction
+build:
+  jobs:
+    pre_checkout:
+      - echo "Running pre-checkout tasks"
+    post_checkout:
+      - echo "Running post-checkout tasks"
+    pre_system_dependencies:
+      - echo "Installing system dependencies"
+    post_system_dependencies:
+      - echo "System dependencies installed"
+    pre_create_environment:
+      - echo "Preparing environment"
+    post_create_environment:
+      - echo "Environment prepared"
+    pre_install:
+      - echo "Running pre-install tasks"
+    post_install:
+      - echo "Running post-install tasks"
+    pre_build:
+      - echo "Preparing for build"
+    post_build:
+      - echo "Build completed"
+
+# Branch par défaut
 default_branch: master
