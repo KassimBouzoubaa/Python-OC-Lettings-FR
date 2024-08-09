@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="fr" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Projet Python-OC-Lettings-FR &#8212; Documentation OC-Lettings 1</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=a12a2fe1"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=041d0952"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="projet-python-oc-lettings-fr">
+<h1>Projet Python-OC-Lettings-FR<a class="headerlink" href="#projet-python-oc-lettings-fr" title="Lien vers cette rubrique">¶</a></h1>
+<section id="description-du-projet">
+<h2>Description du Projet<a class="headerlink" href="#description-du-projet" title="Lien vers cette rubrique">¶</a></h2>
+<p>Python-OC-Lettings-FR est une application Django permettant la gestion de locations de logements.</p>
+</section>
+<section id="installation-du-projet">
+<h2>Installation du Projet<a class="headerlink" href="#installation-du-projet" title="Lien vers cette rubrique">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>Cloner le dépôt :</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/KassimBouzoubaa/Python-OC-Lettings-FR.git
+<span class="nb">cd</span><span class="w"> </span>Python-OC-Lettings-FR
+</pre></div>
+</div>
+</li>
+<li><p><strong>Créer et activer un environnement virtuel :</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+</li>
+<li><p><strong>Installer les dépendances :</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="guide-de-demarrage-rapide">
+<h2>Guide de Démarrage Rapide<a class="headerlink" href="#guide-de-demarrage-rapide" title="Lien vers cette rubrique">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>Appliquer les migrations de la base de données :</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</pre></div>
+</div>
+</li>
+<li><p><strong>Lancer le serveur de développement :</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</pre></div>
+</div>
+</li>
+<li><p><strong>Accéder à l’application :</strong></p>
+<p>Ouvrez votre navigateur et allez à <cite>http://127.0.0.1:8000</cite>.</p>
+</li>
+</ol>
+</section>
+<section id="technologies-et-langages-de-programmation">
+<h2>Technologies et Langages de Programmation<a class="headerlink" href="#technologies-et-langages-de-programmation" title="Lien vers cette rubrique">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Django</strong> : Cadre de développement web en Python.</p></li>
+<li><p><strong>Python 3.11</strong> : Langage de programmation principal.</p></li>
+<li><p><strong>Docker</strong> : Conteneurisation de l’application.</p></li>
+<li><p><strong>GitHub Actions</strong> : Intégration continue et déploiement.</p></li>
+</ul>
+</section>
+<section id="structure-de-la-base-de-donnees-et-modeles-de-donnees">
+<h2>Structure de la Base de Données et Modèles de Données<a class="headerlink" href="#structure-de-la-base-de-donnees-et-modeles-de-donnees" title="Lien vers cette rubrique">¶</a></h2>
+<p>L’application utilise une base de données relationnelle avec les modèles suivants :</p>
+<ul class="simple">
+<li><p><strong>Profile</strong> : Représente un utilisateur avec une ville favorite.</p></li>
+<li><p><strong>Letting</strong> : Représente une location, associée à une adresse.</p></li>
+<li><p><strong>Address</strong> : Modèle représentant une adresse (numéro, rue, ville, etc.).</p></li>
+</ul>
+</section>
+<section id="interfaces-de-programmation">
+<h2>Interfaces de Programmation<a class="headerlink" href="#interfaces-de-programmation" title="Lien vers cette rubrique">¶</a></h2>
+<p>L’application expose les interfaces suivantes :</p>
+<ul class="simple">
+<li><p><strong>Endpoints REST API</strong> :
+- <cite>api/profiles/</cite> : Gestion des profils utilisateurs.
+- <cite>api/lettings/</cite> : Gestion des locations.</p></li>
+</ul>
+</section>
+<section id="guide-d-utilisation">
+<h2>Guide d’Utilisation<a class="headerlink" href="#guide-d-utilisation" title="Lien vers cette rubrique">¶</a></h2>
+<section id="cas-d-utilisation-1-consulter-un-profil-utilisateur">
+<h3>Cas d’utilisation 1 : Consulter un profil utilisateur<a class="headerlink" href="#cas-d-utilisation-1-consulter-un-profil-utilisateur" title="Lien vers cette rubrique">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Accéder à la liste des profils :</strong></p>
+<ul class="simple">
+<li><p>Depuis la page d’accueil, cliquez sur l’onglet « Profils » dans le menu de navigation.</p></li>
+<li><p>Vous serez redirigé vers une page affichant la liste de tous les profils utilisateurs disponibles.</p></li>
+</ul>
+</li>
+<li><p><strong>Sélectionner un profil à consulter :</strong></p>
+<ul class="simple">
+<li><p>Parcourez la liste des profils et cliquez sur le nom du profil que vous souhaitez consulter.</p></li>
+<li><p>Vous serez redirigé vers la page de détails de ce profil où vous pourrez voir toutes les informations associées.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="cas-d-utilisation-2-consulter-une-location">
+<h3>Cas d’utilisation 2 : Consulter une location<a class="headerlink" href="#cas-d-utilisation-2-consulter-une-location" title="Lien vers cette rubrique">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Naviguer vers la section « Locations » :</strong></p>
+<ul class="simple">
+<li><p>Depuis la page d’accueil, cliquez sur l’onglet « Locations » (ou « Lettings ») dans le menu de navigation.</p></li>
+<li><p>Vous serez redirigé vers une page affichant la liste de toutes les locations disponibles.</p></li>
+</ul>
+</li>
+<li><p><strong>Sélectionner une location à consulter :</strong></p>
+<ul class="simple">
+<li><p>Parcourez la liste des locations et cliquez sur l’adresse ou le nom de la location que vous souhaitez consulter.</p></li>
+<li><p>Vous serez redirigé vers la page de détails de cette location où vous pourrez voir toutes les informations pertinentes.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="procedures-de-deploiement-et-de-gestion">
+<h2>Procédures de Déploiement et de Gestion<a class="headerlink" href="#procedures-de-deploiement-et-de-gestion" title="Lien vers cette rubrique">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>Déploiement sur Render via GitHub Actions :</strong></p>
+<p>Le déploiement sur Render est automatisé en utilisant GitHub Actions. Suivez les étapes ci-dessous pour configurer et déployer votre application.</p>
+<ul>
+<li><p><strong>Étape 1 : Configurer les Secrets GitHub</strong></p>
+<p>Assurez-vous que les secrets GitHub suivants sont configurés dans votre dépôt. Ces secrets sont nécessaires pour le bon fonctionnement de l’intégration et du déploiement continus.</p>
+<ul class="simple">
+<li><p><cite>DOCKER_USERNAME</cite> : Nom d’utilisateur Docker Hub.</p></li>
+<li><p><cite>DOCKER_PASSWORD</cite> : Mot de passe Docker Hub.</p></li>
+<li><p><cite>RENDER_API_KEY</cite> : Clé API Render.</p></li>
+<li><p><cite>SECRET_KEY</cite> : Clé secrète pour Django.</p></li>
+<li><p><cite>SENTRY_DSN</cite> : URL DSN pour Sentry (pour le suivi des erreurs).</p></li>
+<li><p><cite>ALLOWED_HOSTS</cite> : Hôtes autorisés pour Django (e.g., <cite>python-oc-lettings-fr-sgwn.onrender.com</cite>).</p></li>
+<li><p><cite>DJANGO_ENV</cite> : Environnement Django (<cite>production</cite> ou <cite>development</cite>).</p></li>
+</ul>
+</li>
+<li><p><strong>Étape 2 : Déployer l’Application</strong></p>
+<p>Une fois les secrets configurés et le fichier GitHub Actions en place, chaque commit poussé sur la branche <cite>master</cite> déclenchera automatiquement le processus de déploiement vers Render.</p>
+</li>
+<li><p><strong>Étape 3 : Suivi du Déploiement</strong></p>
+<p>Vous pouvez suivre le statut du déploiement via la page des Actions de votre dépôt GitHub. Une fois le déploiement terminé, l’application sera disponible sur l’URL configurée sur Render.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Gestion de l’application :</strong></p>
+<ul>
+<li><p><strong>Vérification des logs avec Sentry :</strong></p>
+<p>Pour suivre les erreurs et les événements de votre application en production, nous utilisons Sentry, un service de suivi des erreurs. Sentry est intégré à votre application via le SDK Sentry pour Django.</p>
+<ul class="simple">
+<li><p><strong>Configuration :</strong> Assurez-vous que le DSN de Sentry est correctement configuré dans vos variables d’environnement (<cite>SENTRY_DSN</cite>).</p></li>
+<li><p><strong>Consultation des logs :</strong> Rendez-vous sur le tableau de bord de Sentry pour consulter les erreurs et événements capturés par l’application. Sentry fournit une interface intuitive pour explorer les erreurs, voir leur fréquence, et identifier les causes profondes.</p></li>
+<li><p><strong>Alertes :</strong> Vous pouvez configurer des alertes dans Sentry pour être informé par email ou via d’autres intégrations (comme Slack) lorsque des erreurs critiques surviennent.</p></li>
+</ul>
+</li>
+<li><p><strong>Mise à jour de l’application :</strong></p>
+<p>Les mises à jour se font automatiquement via les pushes vers la branche <cite>master</cite> grâce à l’intégration avec GitHub Actions.</p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">OC-Lettings</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Kassim.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

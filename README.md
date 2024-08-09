@@ -105,6 +105,9 @@ Le déploiement de l'application est automatisé grâce à GitHub Actions et Ren
    - `DOCKER_PASSWORD` : Mot de passe Docker Hub.
    - `RENDER_API_KEY` : Clé API Render.
    - `SECRET_KEY` : Clé secrète pour Django.
+   - `SENTRY_DSN` : Le DSN (Data Source Name) fourni par Sentry pour la configuration de la surveillance des erreurs.
+   - `ALLOWED_HOSTS`: Les noms de domaine ou adresses IP autorisés à accéder à votre application Django, séparés par des virgules (par exemple : python-oc-lettings-fr-sgwn.onrender.com,127.0.0.1).
+
 
 2. **Dockerfile** : Assurez-vous qu'il est configuré pour construire l'image Docker de l'application.
 
@@ -118,7 +121,7 @@ Le déploiement de l'application est automatisé grâce à GitHub Actions et Ren
 ### Étapes de Déploiement
 
 1. **Configurer les Secrets GitHub** :
-   - Ajoutez les secrets `DOCKER_USERNAME`, `DOCKER_PASSWORD`, `RENDER_API_KEY`, et `SECRET_KEY` dans les paramètres de votre dépôt GitHub.
+   - Ajoutez les secrets `DOCKER_USERNAME`, `DOCKER_PASSWORD`, `RENDER_API_KEY` , `ALLOWED_HOSTS`, et `SECRET_KEY` dans les paramètres de votre dépôt GitHub.
 
 2. **Configurer Dockerfile** :
    - Assurez-vous qu'il est correctement configuré pour construire l'image Docker.
