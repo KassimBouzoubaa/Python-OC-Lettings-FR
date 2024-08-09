@@ -1,0 +1,37 @@
+# .readthedocs.yaml
+
+version: 2
+
+# Configurer l'environnement Python
+python:
+  version: "3.11"
+  install:
+    - method: pip
+      path: .
+    - requirements: docs/requirements.txt
+
+# Construction de la documentation
+sphinx:
+  configuration: doc/conf.py
+
+# Construire la documentation en utilisant Sphinx
+build:
+  image: "latest"
+
+# Instructions supplémentaires pour le processus de construction
+formats:
+  - html
+  - pdf
+  - epub
+
+# Option pour ignorer la construction si le fichier n'est pas modifié
+build:
+  os: "ubuntu-22.04"
+  tools:
+    python: "3.11"
+  jobs:
+    post:
+      - if [ ! -f docs/index.rst ]; then echo "Documentation not found"; exit 1; fi
+
+# Spécifier la branche par défaut (par exemple, "main" ou "master")
+default_branch: main
