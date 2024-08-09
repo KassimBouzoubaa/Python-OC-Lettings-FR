@@ -8,7 +8,7 @@ python:
   install:
     - method: pip
       path: .
-    - requirements: docs/requirements.txt
+    - requirements: doc/requirements.txt
 
 # Construction de la documentation
 sphinx:
@@ -18,10 +18,6 @@ sphinx:
 build:
   image: "latest"
 
-# Instructions supplémentaires pour le processus de construction
-formats:
-  - pdf
-
 # Option pour ignorer la construction si le fichier n'est pas modifié
 build:
   os: "ubuntu-22.04"
@@ -29,7 +25,7 @@ build:
     python: "3.11"
   jobs:
     post:
-      - if [ ! -f docs/index.rst ]; then echo "Documentation not found"; exit 1; fi
+      - if [ ! -f doc/index.rst ]; then echo "Documentation not found"; exit 1; fi
 
 # Spécifier la branche par défaut (par exemple, "main" ou "master")
-default_branch: main
+default_branch: master
