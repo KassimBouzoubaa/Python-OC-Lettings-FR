@@ -11,6 +11,9 @@ COPY . /app
 RUN pip install --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
+# Collecter les fichiers statiques
+RUN python manage.py collectstatic --noinput
+
 # Expose le port sur lequel l'application va écouter
 EXPOSE 8000
 

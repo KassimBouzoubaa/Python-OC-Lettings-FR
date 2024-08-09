@@ -67,7 +67,7 @@ jobs:
         run: chmod +x deploy.sh
 
       - name: Execute deploy script
-        run: ./deploy.sh
+        run: ./deploy.sh ${{ secrets.SENTRY_DSN }}
 
   # Travail de déploiement sur Render
   deploy:
