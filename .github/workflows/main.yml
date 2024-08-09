@@ -12,6 +12,9 @@ jobs:
   # Travail de compilation et de tests
   build-and-test:
     runs-on: ubuntu-latest
+    env:
+      SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
     steps:
       - uses: actions/checkout@v3
 
