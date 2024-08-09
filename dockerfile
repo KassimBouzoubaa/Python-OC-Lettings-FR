@@ -14,5 +14,8 @@ RUN pip install --upgrade pip \
 # Expose le port sur lequel l'application va écouter
 EXPOSE 8000
 
+# Collecter les fichiers statiques
+RUN python manage.py collectstatic --noinput
+
 # Commande à exécuter pour démarrer le serveur Django
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
